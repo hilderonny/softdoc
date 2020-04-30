@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_blank">
+        <script src="https://rawgit.com/chjj/marked/master/lib/marked.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.0/mermaid.min.js"></script>
+        <script>
+            var renderer = new marked.Renderer();
+            renderer.code = function (code, language) {
+                if(language === 'mermaid')
+                    return '<div class="mermaid">'+code+'</div>';
+                else
+                    return '<pre><code>'+code+'</code></pre>';
+            };
+
+            function handleAllLinks() {
+                for (atag of document.querySelectorAll('a')) {
+                    if (/^(http(s)?:\/\/)/.test(atag.getAttribute('href')))
+                        atag.setAttribute('target', '_blank');
+                    else {
+                        atag.addEventListener('click', function() {
+                            loadMarkdown(this.getAttribute('href'), '#content');
+                            event.preventDefault();
+                            return false;
+                        });
+                    }
+                }
+            }
+            
+            async function loadMarkdown(url, targetselector) {
+                var source = await (await fetch(url, { mode: 'no-cors' })).text();
+                var html = marked(source, { renderer : renderer });
+                document.querySelector(targetselector).innerHTML = html;
+                mermaid.init();
+                handleAllLinks();
+            }
+
+            window.addEventListener('load', async () => {
+                await loadMarkdown('CONTENT.md', '#sidebar');
+                await loadMarkdown('README.md', '#content');
+                mermaid.mermaidAPI.initialize({
+                    securityLevel: 'loose'
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="sidebar"></div>
+        <div id="content"></div>
+    </body>
+</html>
