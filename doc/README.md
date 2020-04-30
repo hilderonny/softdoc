@@ -29,19 +29,18 @@ graph TD;
 </td></tr></table>
 
 ```js
-
-            function handleLink() {
-                loadMarkdown(this.getAttribute('href'), '#content');
-                event.preventDefault();
-                return false;
-            }
+function handleLink() {
+    loadMarkdown(this.getAttribute('href'), '#content');
+    event.preventDefault();
+    return false;
+}
 ```
 
 ```html
-    <body>
-        <div id="sidebar"></div>
-        <div id="content"></div>
-    </body>
+<body>
+    <div id="sidebar"></div>
+    <div id="content"></div>
+</body>
 ````
 
 Dort wird erklärt, wie man einen Entwickler-Rechner für das Projekt konfiguriert, wie man die Quellcodes beschafft und auch , wie die Anwendung intern strukturiert und aufgebaut ist.
