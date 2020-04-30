@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <base target="_blank">
+        <style>
+            * { box-sizing: border-box; }
+            html, body { margin: 0; padding: 0; height: 100%; }
+            body { display: flex; flex-direction: row; color: rgba(0,0,0,0.87); line-height: 1.6; font-size: 16px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; }
+            a { color: #039be5; text-decoration: none; }
+            #sidebar::before { content: "📖"; display: block; font-size: 100px; text-align: center;}
+            #sidebar, #content { overflow-y: auto; }
+            #sidebar ul { list-style: none; margin: 0; padding: 0; }
+            #sidebar a { display: block; line-height: 44px; padding: 0 30px; font-weight: 500; font-size: 13px; color: rgba(0,0,0,0.87); }
+            #sidebar a:hover { background-color: rgba(0,0,0,0.05); }
+            #sidebar li ul a { padding-left: 45px; font-weight: 400; }
+            #sidebar li li ul a { padding-left: 60px; font-weight: 300; }
+            #content { flex: 1; padding: 0 .75rem; }
+            h1, h2, h3, h4 { color: #26a69a; padding-top:22px; margin: 0; font-size: 2.92rem; font-weight: 300; line-height: 110%; }
+            h2 { font-size: 2.28rem; }
+            h3 { font-size: 1.64rem; }
+            h4 { font-size: 1.15rem; }
+        </style>
         <script src="https://rawgit.com/chjj/marked/master/lib/marked.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.0/mermaid.min.js"></script>
         <script>
@@ -13,16 +30,19 @@
                     return '<pre><code>'+code+'</code></pre>';
             };
 
+            function handleLink() {
+                loadMarkdown(this.getAttribute('href'), '#content');
+                event.preventDefault();
+                return false;
+            }
+
             function handleAllLinks() {
                 for (atag of document.querySelectorAll('a')) {
+                    atag.removeEventListener('click', handleLink);
                     if (/^(http(s)?:\/\/)/.test(atag.getAttribute('href')))
                         atag.setAttribute('target', '_blank');
                     else {
-                        atag.addEventListener('click', function() {
-                            loadMarkdown(this.getAttribute('href'), '#content');
-                            event.preventDefault();
-                            return false;
-                        });
+                        atag.addEventListener('click', handleLink);
                     }
                 }
             }
