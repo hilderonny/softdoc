@@ -1,6 +1,6 @@
 # software-documentation
 
-Anleitung, wie man Software-Repositories mit MarkDown vernünftig dokumentiert und diese Doku auf GitLab Pages hostet.
+Das hier ist eine Anleitung, wie man Software-Repositories mit MarkDown vernünftig dokumentiert und diese Doku auf GitLab Pages hostet.
 
 ## Warum?
 
@@ -18,26 +18,4 @@ Also, ich benutze MarkDown als Format zum Schreiben von Dokumenten. Dazu kommen 
 
 ## Okay, lass uns loslegen!
 
-Für ein Softwareprojekt (egal welches) legen wir zuerst fest, dass alle Dokumentation im Stammordner `/doc` zu liegen hat. Dort muss es eine [README.md](doc/README.md) als Einstiegsseite in die Doku sowie eine [CONTENT.md](doc/CONTENT.md) als navigierbares Inhaltsverzeichnis geben. Letztere wird in der Doku als Sidebar angezeigt.
-
-Zum Schreiben verwende ich Visual Studio Code mit dem [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) Plugin, damit ich während des MarkDown-Schreibens Diagramme live in der Vorschau sehen kann.
-
-Die Page selbst wird durch einen GitLab CI Runner erzeugt. Dazu wird einfach die Date `.gitlab-ci.yml` im Stammverzeichnis mit diesem Inhalt erzeugt:
-
-```
-image: alpine:latest
-
-pages:
-  stage: deploy
-  script:
-  - echo 'Nothing to do...'
-  artifacts:
-    paths:
-    - doc
-  only:
-  - master
-````
-
-Das stellt den Inhalt aus dem Verzeichnis doc bereit, welches wiederum eine HTML-Seite enthält, die wiederum mit markedjs die MarkDown-Dateien aus dem doc-Verzeichnis liest und rendert und ein bisschen aufhübscht.
-
-Der Rest der Doku ist dann [hier](./doc/index.html) zu finden.
+Weiter geht's mit [der Dokumentation selbst](https://hilderonny.gitlab.io/software-documentation/).

@@ -1,5 +1,39 @@
-* [Home](README.md)
-* [Thema 1](thema1/README.md)
-    * [Unterthema 1](thema1/UNTERTHEMA1.md)
-* [Thema 2](thema2/README.md)
-    * [Unterthema 2](thema2/UNTERTHEMA2.md)
+# Software-Dokumentation
+
+Dieses Projekt soll ein Anhaltspunkt für Softwaredokumentation sein. Es zeigt, wie man Dokumentation angefangen von Spezifikationen mit Diagrammen bis hin zu Klassen- und Funktionsbeschreibungen oder Bedienungsanleitungen relativ simpel und einfach wartbar schreiben kann.
+
+## Wie fange ich an?
+
+Zunächst stellen sich die Fragen, wo man am Besten Dokumentation schreibt und wie man diese der Leserschaft zur Verfügung stellt.
+
+Ich gehe davon aus, dass ein Software-Projekt bzw. dessen Quellen in einem Repository (genauer [GitLab](https://gitlab.com)) gespeichert wird. Was spricht also dagegen, die Dokumentation ebenfalls dort zu speichern? Dann hat man gleich eine Versionierung der Dokumentation selbst und im Falle von GitLab kann man [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/) verwenden, um die Dokumentation zu hosten und zugänglich zu machen.
+
+Unter [Getting started](GETTINGSTARTED.md) beschreibe ich, wie dieses Repository hier eingerichtet wird. Das kann dann als Vorlage für andere Software-Projekte verwendet werden.
+
+## Welches Format und welche Tools verwende ich?
+
+TODO
+
+- MarkDown warum? Wiki, textuell, einfacher als HTML, umfangreich genug
+- mermaid für Diagramme in Konzepten
+- highlight für Code-Formatierung
+- marked zum Parsen von MarkDown nach HTML
+- CSS zum hübsch machen
+- VSCode mit Plugins (mermaid support, golive) zum Entwickeln
+
+Zum Schreiben verwende ich Visual Studio Code mit dem [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) Plugin, damit ich während des MarkDown-Schreibens Diagramme live in der Vorschau sehen kann.
+
+
+## Wie funktioniert das Rendering?
+
+Das Rendering erfolgt ausschließlich clientseitig im Browser durch die Dateien `index.html` sowie `softdoc.js`. Diese laden die Markdown-Dateien und formatieren sie für die Anzeige.
+
+Die Prozesse des Ladens, Formatierens und Renderns sind unter [Render-Prozess](umsetzung/RENDERING.md) beschrieben.
+
+Die technische Funktionsweise wird in [softdoc.js](umsetzung/SOFTDOC.md) beschrieben.
+
+## Wie schreibe ich denn nun die Dokumentation?
+
+Es geht hierbei um "best practices" zum Schreiben von Konzepten, Änderungswünschen, Benutzerdokus und Funktionsbeschreibungen.
+
+Das alles wird unter [Best practices](bestpractices/BESTPRACTICES.md) genauer erläutert.

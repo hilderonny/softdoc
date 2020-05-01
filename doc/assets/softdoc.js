@@ -1,9 +1,8 @@
 var renderer = new marked.Renderer();
 renderer.code = function (code, language) {
     if(language === 'mermaid')
-        return '<div class="mermaid">'+code+'</div>';
+        return '<div class="mermaid">' + code + '</div>';
     else {
-        console.log(code, language);
         var validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
         return '<pre><code class="hljs ' + validLanguage + '">' + hljs.highlight(validLanguage, code).value + '</code></pre>';
     }
@@ -36,9 +35,7 @@ async function loadMarkdown(url, targetselector) {
 }
 
 window.addEventListener('load', async () => {
-    await loadMarkdown('CONTENT.md', '#sidebar');
-    await loadMarkdown('README.md', '#content');
-    mermaid.mermaidAPI.initialize({
-        securityLevel: 'loose'
-    });
+    await loadMarkdown('SIDEBAR.md', '#sidebar');
+    await loadMarkdown('CONTENT.md', '#content');
+    mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
 });
