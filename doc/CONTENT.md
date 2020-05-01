@@ -12,17 +12,28 @@ Unter [Getting started](GETTINGSTARTED.md) beschreibe ich, wie dieses Repository
 
 ## Welches Format und welche Tools verwende ich?
 
+Ich habe mich für [MarkDown](https://de.wikipedia.org/wiki/Markdown) als Dokumentationssprache entschieden. Das sind die Gründe:
+
+1. Man kann gut Dokumente formatieren, Medien einbinden, Inhalte verlinken, und eine ganze Menge, was man mit HTML auch machen kann
+2. Es hat eine einfachere Syntax als HTML
+3. Es ist ein Textformat, welches system- und toolunabhängig bearbeitet werden kann
+4. Es wird bereits in vielen Projekten und Wikis verwendet und hat daher eine kleine Lernkurve
+5. Durch das Textformat kann es sehr gut versioniert und Änderungen nachverfolgt werden
+6. Durch Parser kann das Format einfach in HTML für Browser umgewandelt werden
+7. Durch Plugins hat es gute Darstellungsmöglichkeiten für Quellcode und Diagramme (Letzteres ebenfalls textuell)
+
 TODO
 
-- MarkDown warum? Wiki, textuell, einfacher als HTML, umfangreich genug
 - mermaid für Diagramme in Konzepten
 - highlight für Code-Formatierung
 - marked zum Parsen von MarkDown nach HTML
 - CSS zum hübsch machen
-- VSCode mit Plugins (mermaid support, golive) zum Entwickeln
 
 Zum Schreiben verwende ich Visual Studio Code mit dem [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) Plugin, damit ich während des MarkDown-Schreibens Diagramme live in der Vorschau sehen kann.
 
+![](https://github.com/mjbvz/vscode-markdown-mermaid/raw/master/docs/example.png)
+
+Zusätzlich benutze ich die Erweiterung [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). Damit kann man aus VS Code heraus einen Mini-Webserver starten, der das doc-Verzeichnis hostet. Das ist manchmal für die Ajax-Funktionen notwendig, die wegen der ganzen CORS-Geschichte nur von localhost aus und nicht über das `file://` Protokoll funktionieren.
 
 ## Wie funktioniert das Rendering?
 
