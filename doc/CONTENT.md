@@ -22,14 +22,13 @@ Ich habe mich für [MarkDown](https://de.wikipedia.org/wiki/Markdown) als Dokume
 6. Durch Parser kann das Format einfach in HTML für Browser umgewandelt werden
 7. Durch Plugins hat es gute Darstellungsmöglichkeiten für Quellcode und Diagramme (Letzteres ebenfalls textuell)
 
-TODO
+Die MarkDown-Dateien werden clientseitig im Browser mit [marked.js](https://marked.js.org/#/README.md#README.md) in HTML umgewandelt.
 
-- mermaid für Diagramme in Konzepten
-- highlight für Code-Formatierung
-- marked zum Parsen von MarkDown nach HTML
-- CSS zum hübsch machen
+Dabei werden die Plugins [mermaid.js](https://mermaid-js.github.io/mermaid/#/) zum Generieren von Diagrammensowie [highlight.js](https://highlightjs.org/) zum farblichen Formatieren von Code-Blöcken verwendet.
 
-Zum Schreiben verwende ich Visual Studio Code mit dem [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) Plugin, damit ich während des MarkDown-Schreibens Diagramme live in der Vorschau sehen kann.
+Die Auifhübschung wird ausschließlich durch [eine CSS Datei](assets/style.css) erledigt.
+
+Zum Programmieren verwende ich [Visual Studio Code](https://code.visualstudio.com/) mit dem [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) Plugin, damit ich während des MarkDown-Schreibens Diagramme live in der Vorschau sehen kann.
 
 ![](https://github.com/mjbvz/vscode-markdown-mermaid/raw/master/docs/example.png)
 
