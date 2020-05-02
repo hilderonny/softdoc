@@ -50,6 +50,16 @@ Die Datei `SIDEBAR.md` sollte ausschließlich aus Listenelementen bestehen. Dies
     * [Unterthema 2](thema2/UNTERTHEMA2.md)
 ```
 
+## Aussehen der Dokumentation anpassen
+
+Um das Aussehen der Dokumentation zu verändern, sollte eine eigene CSS-Datei im `assets` Verzeichnis angelegt und in der `index.html` eingebunden werden. Das folgende Beispiel zeigt, wie das Logo und die Farben angepasst werden können.
+
+```css
+a { color: green; }
+#sidebar::before { content: "☁"; }
+h1, h2, h3, h4 { color: red; }
+```
+
 ## Datei `/.gitlab-ci.yml`
 
 Diese Datei steuert den GitLab-Runner, der die Dokumentation veröffentlicht und muss sich im Stammverzeichnis des Projektes befinden. Falls es bereits eine solche Datei gibt, braucht diese nur um den unten stehenden Inhalt erweitert zu werden.
