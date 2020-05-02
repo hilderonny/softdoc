@@ -14,7 +14,7 @@ Für das Code-Formatieren durch `highlight` wird ein Stylesheet `solarized-light
 <html>
     <head>
         <link rel="stylesheet" href="assets/solarized-light.min.css">
-        <link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="assets/softdoc.css">
         <script src="assets/marked.js"></script>
         <script src="assets/mermaid.min.js"></script>
         <script src="assets/highlight.min.js"></script>
