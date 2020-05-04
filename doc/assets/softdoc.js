@@ -26,16 +26,21 @@ function handleAllLinks() {
     }
 }
 
-async function loadMarkdown(url, targetselector) {
+async function loadMarkdown(url, targetselector, donotsetnewurl) {
     var source = await (await fetch(url, { mode: 'no-cors', cache: 'no-cache' })).text();
     var html = marked(source);
     document.querySelector(targetselector).innerHTML = html;
     mermaid.init();
     handleAllLinks();
+    if (!donotsetnewurl) history.pushState(null, null, location.origin + location.pathname + '?' + url); // URL aktualisieren
 }
 
 window.addEventListener('load', async () => {
-    await loadMarkdown('SIDEBAR.md', '#sidebar');
-    await loadMarkdown('CONTENT.md', '#content');
+    await loadMarkdown('SIDEBAR.md', '#sidebar', true);
+    if (location.search.length > 1) { // Wenn ?suburl angegeben ist, wird gleich dieses Dokument geladen
+        await loadMarkdown(location.search.substring(1), '#content');
+    } else {
+        await loadMarkdown('CONTENT.md', '#content');
+    }
     mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
 });
