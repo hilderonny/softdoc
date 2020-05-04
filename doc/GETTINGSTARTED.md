@@ -17,12 +17,12 @@ In diesem Verzeichniss muss sich die Datei [index.html](index.html) befinden, we
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="assets/solarized-light.min.css">
-        <link rel="stylesheet" href="assets/softdoc.css">
-        <script src="assets/marked.js"></script>
-        <script src="assets/mermaid.min.js"></script>
-        <script src="assets/highlight.min.js"></script>
-        <script src="assets/softdoc.js"></script>
+        <link rel="stylesheet" href="https://hilderonny.gitlab.io/software-documentation/assets/solarized-light.min.css">
+        <link rel="stylesheet" href="https://hilderonny.gitlab.io/software-documentation/assets/softdoc.css">
+        <script src="https://hilderonny.gitlab.io/software-documentation/assets/marked.js"></script>
+        <script src="https://hilderonny.gitlab.io/software-documentation/assets/mermaid.min.js"></script>
+        <script src="https://hilderonny.gitlab.io/software-documentation/assets/highlight.min.js"></script>
+        <script src="https://hilderonny.gitlab.io/software-documentation/assets/softdoc.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>
@@ -31,7 +31,7 @@ In diesem Verzeichniss muss sich die Datei [index.html](index.html) befinden, we
 </html>
 ```
 
-Zusätzlich wird das Unterverzeichnis `assets` mit all seinen Dateien benötigt. Das Verzeichnis enthält Stylesheets und Skripte, die der Dokumentation beim Rendern helfen.
+Zusätzlich kann das Unterverzeichnis `assets` mit all seinen Dateien eingebunden werden, um lokale unabhänige Installationen zu haben. Das Verzeichnis enthält Stylesheets und Skripte, die der Dokumentation beim Rendern helfen. Alternativ kann auch direkt auf die Quellen von https://hilderonny.gitlab.io/software-documentation/ verwiesen werden.
 
 Zuletzt werden noch zwei [MarkDown](https://de.wikipedia.org/wiki/Markdown)-Dateien benötigt, die die Startseite der Dokumentation und das Inhaltsverzeichnis enthalten.
 

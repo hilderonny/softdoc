@@ -27,7 +27,7 @@ function handleAllLinks() {
 }
 
 async function loadMarkdown(url, targetselector) {
-    var source = await (await fetch(url, { mode: 'no-cors' })).text();
+    var source = await (await fetch(url, { mode: 'no-cors', cache: 'no-cache' })).text();
     var html = marked(source);
     document.querySelector(targetselector).innerHTML = html;
     mermaid.init();
