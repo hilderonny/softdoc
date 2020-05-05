@@ -1,12 +1,14 @@
 # softdoc
 
-Hier gibt es die Grundlage für https://gitlab.com/hilderonny/software-documentation.
+This is the basis for https://softdoc.js.org. **softdoc** is a small JS-Framework for creating dynamic software documentation websites based on MarkDown.
 
-Es werden [softdoc.js](softdoc.js) [softdoc.css](softdoc.css) bereitgestellt, welche per [jsdelivr](https://www.jsdelivr.com/?docs=gh) in einem CDN verfügbar gemacht werden.
+Here you find [softdoc.js](softdoc.js) and [softdoc.css](softdoc.css), which are provided via [jsdelivr](https://www.jsdelivr.com/?docs=gh) in a CDN.
 
-In [example/index.html](example/index.html) ist eine Beispiel-Implementierung, die zeigt, wie softdoc verwendet werden kann.
+In [docs/index.html](docs/index.html) you find an example implementation which shows how to use **softdoc**.
 
-Eine vollständige Beschreibung samt Anleitung, wie man das Ganze mit GitLab pages benutzt, ist [hier](https://hilderonny.gitlab.io/software-documentation) zu finden.
+A full description including a tutorial for how to setup **softdoc** with Git(Hub/Lab) pages can be found [here](https://softdoc.js.org).
+
+## Smallest template
 
 ```html
 <!DOCTYPE html>
@@ -24,4 +26,11 @@ Eine vollständige Beschreibung samt Anleitung, wie man das Ganze mit GitLab pag
         <div id="content"></div>
     </body>
 </html>
+```
+
+## JSDELIVR source URLs
+
+```html
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.0/softdoc.css">
+<script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.0/softdoc.min.js"></script>
 ```
