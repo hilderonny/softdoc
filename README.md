@@ -13,11 +13,11 @@ Eine vollständige Beschreibung samt Anleitung, wie man das Ganze mit GitLab pag
 <html>
     <head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
-        <link rel="stylesheet" href="assets/softdoc.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.0/softdoc.css">
         <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-        <script src="assets/softdoc.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.0/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>
