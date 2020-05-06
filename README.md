@@ -8,6 +8,8 @@ In [docs/index.html](docs/index.html) you find an example implementation which s
 
 A full description including a tutorial for how to setup **softdoc** with Git(Hub/Lab) pages can be found [here](https://softdoc.js.org).
 
+[To the GitHub repository](https://github.com/hilderonny/softdoc)
+
 ## Smallest template
 
 ```html

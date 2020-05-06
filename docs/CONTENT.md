@@ -2,6 +2,8 @@
 
 Dieses Projekt soll ein Anhaltspunkt für Softwaredokumentation sein. Es zeigt, wie man Dokumentation angefangen von Spezifikationen mit Diagrammen bis hin zu Klassen- und Funktionsbeschreibungen oder Bedienungsanleitungen relativ simpel und einfach wartbar schreiben kann.
 
+[Zum GitHub Repository](https://github.com/hilderonny/softdoc)
+
 ## Wie fange ich an?
 
 Zunächst stellen sich die Fragen, wo man am Besten Dokumentation schreibt und wie man diese der Leserschaft zur Verfügung stellt.
@@ -26,7 +28,7 @@ Die MarkDown-Dateien werden clientseitig im Browser mit [marked.js](https://mark
 
 Dabei werden die Plugins [mermaid.js](https://mermaid-js.github.io/mermaid/#/) zum Generieren von Diagrammensowie [highlight.js](https://highlightjs.org/) zum farblichen Formatieren von Code-Blöcken verwendet.
 
-Die Auifhübschung wird ausschließlich durch [eine CSS Datei](assets/softdoc.css) erledigt.
+Die Aufhübschung wird ausschließlich durch [eine CSS Datei](assets/softdoc.css) erledigt.
 
 Zum Programmieren verwende ich [Visual Studio Code](https://code.visualstudio.com/) mit dem [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) Plugin, damit ich während des MarkDown-Schreibens Diagramme live in der Vorschau sehen kann.
 
