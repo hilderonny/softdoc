@@ -31,9 +31,16 @@ function handleAllLinks() {
     }
 }
 
-async function loadMarkdown(url, targetselector, donotsetnewurl) {
+async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl) {
     var source = await (await fetch(url, { mode: 'no-cors', cache: 'no-cache' })).text();
-    if (!donotsetnewurl) history.pushState(null, null, location.origin + location.pathname + '?' + url); // URL aktualisieren, muss vor Rendering passieren, damit Links auf neue URL zeigen
+    if (!donotsetnewurl) {
+        var historyurl = location.origin + location.pathname + '?' + url;
+        if (!replacenewurl) {
+            history.pushState(null, null, historyurl); // URL aktualisieren, muss vor Rendering passieren, damit Links auf neue URL zeigen
+        } else {
+            history.replaceState(null, null, historyurl); // Beim ersten Laden soll die Historie nicht angehängt werden, da man sonst nicht mehr raus kommt
+        }
+    }
     var html = marked(source);
     // Append "powered by" hint
     html += '<div class="poweredbysoftdoc">powered by <a href="https://softdoc.js.org">softdoc.js</a></div>';
@@ -51,7 +58,7 @@ window.addEventListener('load', async () => {
     if (location.search.length > 1) { // Wenn ?suburl angegeben ist, wird gleich dieses Dokument geladen
         await loadMarkdown(location.search.substring(1), '#content', true);
     } else {
-        await loadMarkdown('CONTENT.md', '#content');
+        await loadMarkdown('CONTENT.md', '#content', false, true);
     }
     mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
 });
