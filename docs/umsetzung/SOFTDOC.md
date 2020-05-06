@@ -13,12 +13,12 @@ Für das Code-Formatieren durch `highlight` wird ein Stylesheet `solarized-light
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="assets/solarized-light.min.css">
-        <link rel="stylesheet" href="assets/softdoc.css">
-        <script src="assets/marked.js"></script>
-        <script src="assets/mermaid.min.js"></script>
-        <script src="assets/highlight.min.js"></script>
-        <script src="assets/softdoc.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.1/softdoc.css">
+        <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.1/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>
@@ -58,6 +58,16 @@ renderer.code = function (code, language) {
 marked.setOptions({ renderer: renderer });
 ```
 
+Das Klicken von internen Links führt dazu, dass die URL aktualisiert wird, obwohl die Inhalte nur per AJAX-Calls geladen werden. Dadurch kann man mit den Browser-Buttons in der Historie vor- und zurück navigieren.
+
+Damit das auch funktioniert, und beim Zurück-Navigieren nicht nur die URL in der Browserleiste geändert wird, wird im `onpostate` event handler die Seite mit der neuen URL neu geladen.
+
+```js
+window.addEventListener('popstate', () => {
+    this.location.reload();
+});
+```
+
 ### `loadMarkdown(url, targetselector)`
 
 Die Funktion erwartet mit `url` eine URL auf eine Markdown-Datei.
@@ -67,6 +77,8 @@ Diese Datei wird mit `fetch` geladen, anschließend mit `marked` geparst, mit `m
 Danach wird das generierte HTML in jenes Element auf der Seite geschrieben, welches mit der XPATH-Angabe `targetselector` erreichbar ist. Der bestehende Inhalt wird dabei ersetzt.
 
 Zum Schluss werden alle Links im generierten HTML mit `handleAllLinks()` analysiert und angepasst.
+
+Die URL der geladenen Datei wird in der Broser-Historie abgelegt, damit mit den Browser-Buttons vor- und zurück navigiert werden kann.
 
 ### `handleAllLinks()`
 

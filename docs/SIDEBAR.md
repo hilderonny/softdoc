@@ -4,3 +4,4 @@
     * [Render-Prozess](umsetzung/RENDERING.md)
     * [softdoc.js](umsetzung/SOFTDOC.md)
 * [Best practices](bestpractices/BESTPRACTICES.md)
+* [Versionen](VERSIONS.md)

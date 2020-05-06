@@ -26,11 +26,11 @@ In diesem Verzeichniss muss sich die Datei [index.html](index.html) befinden, we
 <html>
     <head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.0/softdoc.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.1/softdoc.css">
         <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.0/softdoc.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.1/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>
@@ -58,12 +58,18 @@ Die Datei `SIDEBAR.md` sollte ausschließlich aus Listenelementen bestehen. Dies
 
 ## Aussehen der Dokumentation anpassen
 
-Um das Aussehen der Dokumentation zu verändern, sollte eine eigene CSS-Datei im `assets` Verzeichnis angelegt und in der `index.html` eingebunden werden. Das folgende Beispiel zeigt, wie das Logo und die Farben angepasst werden können.
+Um das Aussehen der Dokumentation zu verändern, sollte eine eigene CSS-Datei angelegt und in der `index.html` eingebunden werden. Das folgende Beispiel zeigt, wie das Logo und die Farben angepasst werden können.
 
 ```css
 a { color: green; }
 #sidebar::before { content: "☁"; }
 h1, h2, h3, h4 { color: red; }
+```
+
+Falls der "poweredby" - Slogan am Ende jeder Seite unerwünscht ist, lässt dieser sich per CSS einfach ausblenden:
+
+```css
+.poweredbysoftdoc { display: none; }
 ```
 
 ## Datei `/.gitlab-ci.yml`
