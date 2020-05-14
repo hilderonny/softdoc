@@ -1,3 +1,6 @@
+var settingstext = localStorage.getItem('settings');
+var settings = settingstext ? JSON.parse(settingstext) : { lastmodified: {} };
+
 var renderer = new marked.Renderer();
 renderer.code = function(code, language) {
     if(language === 'mermaid')
@@ -15,24 +18,45 @@ renderer.heading = function(text, level) {
 marked.setOptions({ renderer: renderer });
 
 function handleLink() {
+    this.classList.remove('new');
     loadMarkdown(this.getAttribute('href'), '#content');
     event.preventDefault();
     return false;
 }
 
-function handleAllLinks() {
-    for (atag of document.querySelectorAll('a')) {
+function handleAllLinks(targetselector, checkforupdates) {
+    for (atag of document.querySelector(targetselector).querySelectorAll('a')) { // Nur die Links des neu geladenen Dokumentes bearbeiten
         atag.removeEventListener('click', handleLink);
-        if (/^(http(s)?:\/\/)/.test(atag.getAttribute('href')))
+        var href = atag.getAttribute('href');
+        if (/^(http(s)?:\/\/)/.test(href))
             atag.setAttribute('target', '_blank');
         else {
             atag.addEventListener('click', handleLink);
+            // Für die sidebar werden Links mit "new" markiert, wenn deren Zieldateien ein Änderungsdatum haben, welches neuer ist als der letzte Zugriff
+            if (checkforupdates) {
+                // Das ist zwar teuer, sollte abr nur beim ersten Aufruf für die Sidebar erfolgen
+                // Wir machen dass in einer Promise, damit das im Hintergrund laufen kann und somit das Seiten-Laden nicht unterbrochen wird
+                new Promise(async() => {
+                    var ataginpromise = atag;
+                    var hrefinpromise = href;
+                    return fetch(hrefinpromise, { method: 'HEAD', mode: 'no-cors', cache: 'no-cache' }).then((response) => {
+                        var lastmodified = Date.parse(response.headers.get('last-modified'));
+                        if (!settings.lastmodified[hrefinpromise] || settings.lastmodified[hrefinpromise] < lastmodified) {
+                            ataginpromise.classList.add('new');
+                        }
+                    });
+                });
+            }
         }
     }
 }
 
-async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl) {
-    var source = await (await fetch(url, { mode: 'no-cors', cache: 'no-cache' })).text();
+async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl, checkforupdates) {
+    var response = await fetch(url, { mode: 'no-cors', cache: 'no-cache' });
+    // Der gerade letzte Zugriff wird im localstorage gespeichert, um später in der sidebar neuere Dokumente markieren zu können
+    settings.lastmodified[url] = Date.now();
+    localStorage.setItem('settings', JSON.stringify(settings));
+    var source = await response.text();
     if (!donotsetnewurl) {
         var historyurl = location.origin + location.pathname + '?' + url;
         if (!replacenewurl) {
@@ -46,7 +70,7 @@ async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl) 
     html += '<div class="poweredbysoftdoc">powered by <a href="https://softdoc.js.org">softdoc.js</a></div>';
     document.querySelector(targetselector).innerHTML = html;
     mermaid.init();
-    handleAllLinks();
+    handleAllLinks(targetselector, checkforupdates);
     if (location.hash.length > 1) {
         var el = document.getElementById(location.hash.substring(1));
         if (el) el.scrollIntoView(); // Mit #id zu einer Überschrift springen, falls diese existiert
@@ -54,11 +78,11 @@ async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl) 
 }
 
 window.addEventListener('load', async () => {
-    await loadMarkdown('SIDEBAR.md', '#sidebar', true);
+    await loadMarkdown('SIDEBAR.md', '#sidebar', true, false, true);
     if (location.search.length > 1) { // Wenn ?suburl angegeben ist, wird gleich dieses Dokument geladen
-        await loadMarkdown(location.search.substring(1), '#content', true);
+        await loadMarkdown(location.search.substring(1), '#content', true, false, false);
     } else {
-        await loadMarkdown('CONTENT.md', '#content', false, true);
+        await loadMarkdown('CONTENT.md', '#content', false, true, false);
     }
     mermaid.mermaidAPI.initialize({ securityLevel: 'loose' });
 });

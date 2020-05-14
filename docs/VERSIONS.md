@@ -1,5 +1,11 @@
 # Versionen
 
+## 1.2
+
+[Download](https://github.com/hilderonny/softdoc/releases/tag/v1.2)
+
+* 'New' badges bei ungelesenen Inhalten in Sidebar eingefügt
+
 ## 1.1.1
 
 [Download](https://github.com/hilderonny/softdoc/releases/tag/v1.1.1)

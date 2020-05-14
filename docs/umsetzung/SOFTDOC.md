@@ -2,7 +2,7 @@
 
 SoftDoc besteht im Grunde aus der `index.html` Datei, die als Startseite und Grundgerüdt dient, und der `assets/softdoc.js`, die die Programmlogik beinhaltet.
 
-Die knzeptuelle Funktionsweise ist in [Render-Prozess](RENDERING.md) beschrieben.
+Die konzeptuelle Funktionsweise ist in [Render-Prozess](umsetzung/RENDERING.md) beschrieben.
 
 ## index.html
 
@@ -14,11 +14,11 @@ Für das Code-Formatieren durch `highlight` wird ein Stylesheet `solarized-light
 <html>
     <head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.1.1/softdoc.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.2/softdoc.css">
         <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.1.1/softdoc.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.2/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>

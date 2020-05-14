@@ -29,4 +29,4 @@ In einem weiteren Schritt werden alle `<a href>`- Links analysiert und durch Jav
 
 Zum Schluss wird das HTML in den Inhaltsbereich geschrieben und der bestehende Inhalt ersetzt.
 
-Die technische Umsetzung erfolgt in der Datei [softdoc.js](SOFTDOC.md).
+Die technische Umsetzung erfolgt in der Datei [softdoc.js](umsetzung/SOFTDOC.md).
