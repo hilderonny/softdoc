@@ -19,8 +19,8 @@ td, th { padding: 6px; vertical-align: top; }
 #sidebar li a:hover { background-color: rgba(0,0,0,0.05); }
 #sidebar li ul a { padding-left: 45px; font-weight: 400; }
 #sidebar li li ul a { padding-left: 60px; font-weight: 300; }
-#sidebar li.menu::before { content: '⯈'; color: rgba(0,0,0,0.5); width: 30px; text-align: right; left: 0; position: absolute; line-height: 44px; padding-right: 4px; cursor: pointer; box-sizing: border-box; }
-#sidebar li.menu.open::before { content: '⯆'; }
+#sidebar li.menu::before { content: '➤'; color: rgba(0,0,0,0.5); width: 30px; text-align: right; left: 0; position: absolute; line-height: 44px; padding-right: 4px; cursor: pointer; box-sizing: border-box; }
+#sidebar li.menu.open::before { transform: rotate(90deg); transform-origin: 19px 23px; }
 #sidebar li.menu > ul { display: none; }
 #sidebar li.menu.open > ul { display: block; }
 #sidebar li li.menu::before { left: 15px; }

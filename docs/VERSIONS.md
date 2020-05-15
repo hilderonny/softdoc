@@ -1,5 +1,11 @@
 # Versionen
 
+## 1.3.1
+
+[Download](https://github.com/hilderonny/softdoc/releases/tag/v1.3.1)
+
+* Symbole im Aufklappmenü korrigiert
+
 ## 1.3
 
 [Download](https://github.com/hilderonny/softdoc/releases/tag/v1.3)
