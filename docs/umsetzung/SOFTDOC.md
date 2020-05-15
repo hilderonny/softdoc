@@ -14,11 +14,11 @@ Für das Code-Formatieren durch `highlight` wird ein Stylesheet `solarized-light
 <html>
     <head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.2/softdoc.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.3/softdoc.css">
         <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.2/softdoc.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.3/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>
@@ -60,7 +60,7 @@ marked.setOptions({ renderer: renderer });
 
 Das Klicken von internen Links führt dazu, dass die URL aktualisiert wird, obwohl die Inhalte nur per AJAX-Calls geladen werden. Dadurch kann man mit den Browser-Buttons in der Historie vor- und zurück navigieren.
 
-Damit das auch funktioniert, und beim Zurück-Navigieren nicht nur die URL in der Browserleiste geändert wird, wird im `onpostate` event handler die Seite mit der neuen URL neu geladen.
+Damit das auch funktioniert, und beim Zurück-Navigieren nicht nur die URL in der Browserleiste geändert wird, wird im `onpopstate` event handler die Seite mit der neuen URL neu geladen.
 
 ```js
 window.addEventListener('popstate', () => {
@@ -68,28 +68,11 @@ window.addEventListener('popstate', () => {
 });
 ```
 
-### `loadMarkdown(url, targetselector)`
+Die Sidebar enthält ein Menü, das auf- und zugeklappt werden kann. Die Logik dazu wird in `handleSidebarMenu()` umgesetzt.
 
-Die Funktion erwartet mit `url` eine URL auf eine Markdown-Datei.
+## Funktionen
 
-Diese Datei wird mit `fetch` geladen, anschließend mit `marked` geparst, mit `mermaid` Diagramme und mit `highlight.js` Code-Fragemente formatiert.
-
-Danach wird das generierte HTML in jenes Element auf der Seite geschrieben, welches mit der XPATH-Angabe `targetselector` erreichbar ist. Der bestehende Inhalt wird dabei ersetzt.
-
-Zum Schluss werden alle Links im generierten HTML mit `handleAllLinks()` analysiert und angepasst.
-
-Die URL der geladenen Datei wird in der Broser-Historie abgelegt, damit mit den Browser-Buttons vor- und zurück navigiert werden kann.
-
-### `handleAllLinks()`
-
-Diese Funktion analysiert alle auf der gerenderten Seite enthaltenen Links.
-
-Absolute externe Links, die mit `http://` oder `https://` beginnen, werden so angepasst, dass die Ziel-Seiten in neuen Browser-Tabs geöffnet werden, um den Lesefluss nicht zu unterbrechen.
-
-Relative Links werden als Verweise auf Markdown-Dateien verstanden und bekommen einen JavaScript-Handler `handleLink()`, der das Laden und Rendern der Ziel-Datei übernimmt. Ein relatives Verlinken auf andere Dateien außer Markdown-Dateien wird derzeit nicht unterstützt.
-
-### `handleLink()`
-
-Dieser Event-Handler wird beim Anklicken eines relativen Links aufgerufen.
-
-Die Funktion lädt die Ziel-Datei des Links per `fetch()` und fügt den in HTML umgewandelten Inhalt mit `loadMarkdown()` in das mit `#content` markierte DIV.
+* [handleAllLinks()](umsetzung/softdoc/HANDLEALLLINKS.md)
+* [handleLink()](umsetzung/softdoc/HANDLELINK.md)
+* [handleSidebarMenu()](umsetzung/softdoc/HANDLESIDEBARMENU.md)
+* [loadMarkdown(url, targetselector)](umsetzung/softdoc/LOADMARKDOWN.md)

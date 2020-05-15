@@ -1,9 +1,7 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; }
 body { display: flex; flex-direction: row; color: rgba(0,0,0,0.87); line-height: 1.6; font-size: 16px; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; }
-a { color: #039be5; text-decoration: none; position: relative; }
-a.new::before, a.update::before { top: 16px; position: absolute; font-size: 9px; color: white; line-height: 11px; padding: 0 4px; border-radius: 5px; right: 0; }
-a.new::before { content: 'New'; background-color: rgba(0,170,0,.6); }
+a { color: #039be5; text-decoration: none; }
 code { padding: 2px 4px; color: #1f1f1f; background-color: #f2f2f2; border-radius: 4px; }
 pre { border: 1px solid #dfdfdf; border-radius: 4px; }
 table { border-spacing: 0; }
@@ -14,10 +12,18 @@ td, th { padding: 6px; vertical-align: top; }
 #sidebar, #content { overflow-y: auto; }
 #sidebar > ul { flex: 1; }
 #sidebar ul { list-style: none; margin: 0; padding: 0; }
+#sidebar li { position: relative; }
 #sidebar li a { display: block; line-height: 44px; padding: 0 30px; font-weight: 500; font-size: 13px; color: rgba(0,0,0,0.87); }
+#sidebar li a.new::before, #sidebar li a.update::before { top: 16px; position: absolute; font-size: 9px; color: white; line-height: 11px; padding: 0 4px; border-radius: 5px; right: 0; }
+#sidebar li a.new::before { content: 'New'; background-color: rgba(0,170,0,.6); }
 #sidebar li a:hover { background-color: rgba(0,0,0,0.05); }
 #sidebar li ul a { padding-left: 45px; font-weight: 400; }
 #sidebar li li ul a { padding-left: 60px; font-weight: 300; }
+#sidebar li.menu::before { content: '⯈'; color: rgba(0,0,0,0.5); width: 30px; text-align: right; left: 0; position: absolute; line-height: 44px; padding-right: 4px; cursor: pointer; box-sizing: border-box; }
+#sidebar li.menu.open::before { content: '⯆'; }
+#sidebar li.menu > ul { display: none; }
+#sidebar li.menu.open > ul { display: block; }
+#sidebar li li.menu::before { left: 15px; }
 #content { flex: 1; padding: 0 .75rem; }
 h1, h2, h3, h4 { color: #26a69a; padding-top:22px; margin: 0; font-size: 2.92rem; font-weight: 400; line-height: 110%; }
 h2 { font-size: 2.28rem; }

@@ -25,8 +25,14 @@ Beim Umwandeln werden die `code`- Bereiche analysiert. Enthält dieser ```mermai
 
 Andernfalls wird mit `highlight.js` der Code farblich entsprechend der Programmiersprache formatiert und ebenfalls ins HTML eingefügt.
 
-In einem weiteren Schritt werden alle `<a href>`- Links analysiert und durch JavaScript-Funktionen ersetzt. Externe Links werden dabei in einem neuen Tab geöffnet. Relative Links werden als Referenzen auf MarkDown-Dateien verstanden und durchlafen denselben Prozess des Ladens und renderns, wenn sie angeklickt werden. Damit können auch Links innerhalb von Diagrammen mit externen und internen Verweisen versehen werden.
+In einem weiteren Schritt werden alle `<a href>`- Links analysiert und durch JavaScript-Funktionen ersetzt. Externe Links werden dabei in einem neuen Tab geöffnet. Relative Links werden als Referenzen auf MarkDown-Dateien verstanden und durchlafen denselben Prozess des Ladens und Renderns, wenn sie angeklickt werden. Damit können auch Links innerhalb von Diagrammen mit externen und internen Verweisen versehen werden.
+
+![New badge](umsetzung/newbadge.png)
+
+Softdoc merkt sich im localStorage, welche Seiten bereits angesehen wurden. Alle Seiten, die man noch nicht angesehen hat, werden in der Sidebar mit einer "New" - badge markiert. Ebenso Seiten, die seit dem letzten Besuch aktualisiert wurden. So hat man stets einen Überblick, ob es interessante Neuigkeiten gibt.
 
 Zum Schluss wird das HTML in den Inhaltsbereich geschrieben und der bestehende Inhalt ersetzt.
+
+Die Menüeinträge der Sidebar können auf- und zugeklappt werden. Der Zustand des Zuklappens wird dabei ebenfalls im localStorage gespeichert und beim nächsten Besuch findet man denselben Zustand wie vorher vor.
 
 Die technische Umsetzung erfolgt in der Datei [softdoc.js](umsetzung/SOFTDOC.md).

@@ -1,5 +1,11 @@
 # Versionen
 
+## 1.3
+
+[Download](https://github.com/hilderonny/softdoc/releases/tag/v1.3)
+
+* Sidebarmenüs lassen sich zuklappen
+
 ## 1.2
 
 [Download](https://github.com/hilderonny/softdoc/releases/tag/v1.2)

@@ -26,11 +26,11 @@ In diesem Verzeichniss muss sich die Datei [index.html](index.html) befinden, we
 <html>
     <head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.2/softdoc.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.3/softdoc.css">
         <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.2/softdoc.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.3/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>

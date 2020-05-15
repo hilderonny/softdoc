@@ -1,5 +1,7 @@
 var settingstext = localStorage.getItem('settings');
-var settings = settingstext ? JSON.parse(settingstext) : { lastmodified: {} };
+var settings = settingstext ? JSON.parse(settingstext) : { };
+if (!settings.lastmodified) settings.lastmodified = {};
+if (!settings.openmenu) settings.openmenu = {};
 
 var renderer = new marked.Renderer();
 renderer.code = function(code, language) {
@@ -21,6 +23,7 @@ function handleLink() {
     this.classList.remove('new');
     loadMarkdown(this.getAttribute('href'), '#content');
     event.preventDefault();
+    event.stopPropagation(); // Damit im Menü nicht auch die li-Tags im Hintergrund getriggert werden
     return false;
 }
 
@@ -47,6 +50,24 @@ function handleAllLinks(targetselector, checkforupdates) {
                     });
                 });
             }
+        }
+    }
+}
+
+function handleSideBarMenu() {
+    for (var li of document.querySelectorAll('#sidebar li')) {
+        var a = li.querySelector('a:first-of-type')
+        var hasul = !!li.querySelector('ul:first-of-type');
+        if (hasul) {
+            li.classList.add('menu');
+            li.identifier = a.getAttribute('href');
+            if (settings.openmenu[li.identifier]) li.classList.add('open');
+            li.addEventListener('click', function() {
+                this.classList.toggle('open');
+                settings.openmenu[this.identifier] = this.classList.contains('open');
+                localStorage.setItem('settings', JSON.stringify(settings));
+                event.stopPropagation(); // Bei tieferen Leveln sollen die höheren nicht getriggert werden
+            });
         }
     }
 }
@@ -79,6 +100,7 @@ async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl, 
 
 window.addEventListener('load', async () => {
     await loadMarkdown('SIDEBAR.md', '#sidebar', true, false, true);
+    handleSideBarMenu();
     if (location.search.length > 1) { // Wenn ?suburl angegeben ist, wird gleich dieses Dokument geladen
         await loadMarkdown(location.search.substring(1), '#content', true, false, false);
     } else {
