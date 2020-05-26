@@ -2,7 +2,7 @@
 
 SoftDoc besteht im Grunde aus der `index.html` Datei, die als Startseite und Grundgerüdt dient, und der `assets/softdoc.js`, die die Programmlogik beinhaltet.
 
-Die konzeptuelle Funktionsweise ist in [Render-Prozess](umsetzung/RENDERING.md) beschrieben.
+Die konzeptuelle Funktionsweise ist in [Render-Prozess](RENDERING.md) beschrieben.
 
 ## index.html
 
@@ -14,11 +14,11 @@ Für das Code-Formatieren durch `highlight` wird ein Stylesheet `solarized-light
 <html>
     <head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.3.1/softdoc.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4/softdoc.css">
         <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.3.1/softdoc.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>
@@ -72,7 +72,7 @@ Die Sidebar enthält ein Menü, das auf- und zugeklappt werden kann. Die Logik d
 
 ## Funktionen
 
-* [handleAllLinks()](umsetzung/softdoc/HANDLEALLLINKS.md)
-* [handleLink()](umsetzung/softdoc/HANDLELINK.md)
-* [handleSidebarMenu()](umsetzung/softdoc/HANDLESIDEBARMENU.md)
-* [loadMarkdown(url, targetselector)](umsetzung/softdoc/LOADMARKDOWN.md)
+* [handleAllLinks()](softdoc/HANDLEALLLINKS.md)
+* [handleLink()](softdoc/HANDLELINK.md)
+* [handleSidebarMenu()](softdoc/HANDLESIDEBARMENU.md)
+* [loadMarkdown(url, targetselector)](softdoc/LOADMARKDOWN.md)

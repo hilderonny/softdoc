@@ -27,13 +27,15 @@ function handleLink() {
     return false;
 }
 
-function handleAllLinks(targetselector, checkforupdates) {
+function handleAllLinks(relativepath, targetselector, checkforupdates) {
     for (atag of document.querySelector(targetselector).querySelectorAll('a')) { // Nur die Links des neu geladenen Dokumentes bearbeiten
         atag.removeEventListener('click', handleLink);
         var href = atag.getAttribute('href');
         if (/^(http(s)?:\/\/)/.test(href))
             atag.setAttribute('target', '_blank');
         else {
+            // Relative Links absolutieren
+            if (relativepath.length > 0) atag.setAttribute('href', relativepath + '/' + href);
             atag.addEventListener('click', handleLink);
             // Für die sidebar werden Links mit "new" markiert, wenn deren Zieldateien ein Änderungsdatum haben, welches neuer ist als der letzte Zugriff
             if (checkforupdates) {
@@ -50,6 +52,16 @@ function handleAllLinks(targetselector, checkforupdates) {
                     });
                 });
             }
+        }
+    }
+}
+
+function handleAllImages(relativepath, targetselector) {
+    for (imgtag of document.querySelector(targetselector).querySelectorAll('img')) { // Nur die Bilder des neu geladenen Dokumentes bearbeiten
+        var src = imgtag.getAttribute('src');
+        if (!/^(http(s)?:\/\/)/.test(src)) {
+            // Relative Links absolutieren
+            if (relativepath.length > 0) imgtag.setAttribute('src', relativepath + '/' + src);
         }
     }
 }
@@ -73,6 +85,7 @@ function handleSideBarMenu() {
 }
 
 async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl, checkforupdates) {
+    var relativepath = url.substring(0, url.lastIndexOf('/'));
     var response = await fetch(url, { mode: 'no-cors', cache: 'no-cache' });
     // Der gerade letzte Zugriff wird im localstorage gespeichert, um später in der sidebar neuere Dokumente markieren zu können
     settings.lastmodified[url] = Date.now();
@@ -90,8 +103,9 @@ async function loadMarkdown(url, targetselector, donotsetnewurl, replacenewurl, 
     // Append "powered by" hint
     html += '<div class="poweredbysoftdoc">powered by <a href="https://softdoc.js.org">softdoc.js</a></div>';
     document.querySelector(targetselector).innerHTML = html;
-    mermaid.init();
-    handleAllLinks(targetselector, checkforupdates);
+    mermaid.init(); // Diagramme neu generieren
+    handleAllLinks(relativepath, targetselector, checkforupdates);
+    handleAllImages(relativepath, targetselector);
     if (location.hash.length > 1) {
         var el = document.getElementById(location.hash.substring(1));
         if (el) el.scrollIntoView(); // Mit #id zu einer Überschrift springen, falls diese existiert

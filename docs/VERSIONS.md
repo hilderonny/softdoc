@@ -1,5 +1,11 @@
 # Versionen
 
+## 1.4
+
+[Download](https://github.com/hilderonny/softdoc/releases/tag/v1.4)
+
+* Links können nun relativ zum Dokument definiert werden. Das korrigiert die Vorschau in VS Code.
+
 ## 1.3.1
 
 [Download](https://github.com/hilderonny/softdoc/releases/tag/v1.3.1)
