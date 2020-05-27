@@ -17,11 +17,11 @@ A full description including a tutorial for how to setup **softdoc** with Git(Hu
 <html>
     <head>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/styles/solarized-light.min.css">
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4/softdoc.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4.1/softdoc.css">
         <script src="//cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         <script src="//unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.0/build/highlight.min.js"></script>
-        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4/softdoc.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4.1/softdoc.min.js"></script>
     </head>
     <body>
         <div id="sidebar"></div>
@@ -33,6 +33,6 @@ A full description including a tutorial for how to setup **softdoc** with Git(Hu
 ## JSDELIVR source URLs
 
 ```html
-<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4/softdoc.css">
-<script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4/softdoc.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4.1/softdoc.css">
+<script src="//cdn.jsdelivr.net/gh/hilderonny/softdoc@1.4.1/softdoc.min.js"></script>
 ```

@@ -1,5 +1,11 @@
 # Versionen
 
+## 1.4.1
+
+[Download](https://github.com/hilderonny/softdoc/releases/tag/v1.4.1)
+
+* Links von Überschriften korrigiert
+
 ## 1.4
 
 [Download](https://github.com/hilderonny/softdoc/releases/tag/v1.4)

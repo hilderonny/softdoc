@@ -34,8 +34,8 @@ function handleAllLinks(relativepath, targetselector, checkforupdates) {
         if (/^(http(s)?:\/\/)/.test(href))
             atag.setAttribute('target', '_blank');
         else {
-            // Relative Links absolutieren
-            if (relativepath.length > 0) atag.setAttribute('href', relativepath + '/' + href);
+            // Relative Links absolutieren, aber nur, wenn dieser nicht schon drinsteckt (ist bei Überschriften der Fall)
+            if (relativepath.length > 0 && !href.startsWith(relativepath)) atag.setAttribute('href', relativepath + '/' + href);
             atag.addEventListener('click', handleLink);
             // Für die sidebar werden Links mit "new" markiert, wenn deren Zieldateien ein Änderungsdatum haben, welches neuer ist als der letzte Zugriff
             if (checkforupdates) {
