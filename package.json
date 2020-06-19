@@ -1,0 +1,25 @@
+{
+  "name": "softdoc",
+  "version": "1.4.1",
+  "description": "This is the basis for https://softdoc.js.org. **softdoc** is a small JS-Framework for creating dynamic software documentation websites based on MarkDown.",
+  "main": "softdoc.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "build": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hilderonny/softdoc.git"
+  },
+  "author": "Ronny Hildebrandt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hilderonny/softdoc/issues"
+  },
+  "homepage": "https://github.com/hilderonny/softdoc#readme",
+  "dependencies": {
+    "marked": "^1.1.0"
+  }
+}
