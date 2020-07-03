@@ -1,5 +1,11 @@
 # Versionen
 
+## 1.4.2
+
+[Download](https://github.com/hilderonny/softdoc/releases/tag/v1.4.2)
+
+* Relative Links auf HTML-Dateien öffnen diese in neuem Fenster
+
 ## 1.4.1
 
 [Download](https://github.com/hilderonny/softdoc/releases/tag/v1.4.1)

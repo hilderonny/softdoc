@@ -31,7 +31,7 @@ function handleAllLinks(relativepath, targetselector, checkforupdates) {
     for (atag of document.querySelector(targetselector).querySelectorAll('a')) { // Nur die Links des neu geladenen Dokumentes bearbeiten
         atag.removeEventListener('click', handleLink);
         var href = atag.getAttribute('href');
-        if (/^(http(s)?:\/\/)/.test(href))
+        if (/^(http(s)?:\/\/)/.test(href) || !(href.split('#')[0].endsWith('.md')))
             atag.setAttribute('target', '_blank');
         else {
             // Relative Links absolutieren, aber nur, wenn dieser nicht schon drinsteckt (ist bei Überschriften der Fall)
