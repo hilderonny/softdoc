@@ -1,5 +1,12 @@
 # Versionen
 
+## 1.5
+
+[Download](https://github.com/hilderonny/softdoc/releases/tag/v1.5)
+
+* Softdoc.js ist nun mobilfähig mit Hamburger-Menü
+* Der Inhalt wird bei Seitenwechsel an den Anfang gescrollt
+
 ## 1.4.2
 
 [Download](https://github.com/hilderonny/softdoc/releases/tag/v1.4.2)

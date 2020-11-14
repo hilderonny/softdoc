@@ -7,6 +7,7 @@ pre { border: 1px solid #dfdfdf; border-radius: 4px; }
 table { border-spacing: 0; }
 th { border-bottom: 1px solid #ccc; background-color: rgba(0,0,0,.03); }
 td, th { padding: 6px; vertical-align: top; }
+#menu { display: none; }
 #sidebar::before { content: "📖"; display: block; font-size: 100px; text-align: center;}
 #sidebar { display: flex; flex-direction: column; }
 #sidebar, #content { overflow-y: auto; }
@@ -32,3 +33,12 @@ h4 { font-size: 1.15rem; }
 img { max-width: 100%; }
 .poweredbysoftdoc { font-size: 9px; text-align: right; padding: .75rem; color: #ccc; }
 .poweredbysoftdoc a { color: #888; }
+
+@media only screen and (max-width: 768px) {
+    #menu { display: block; width: 0; height: 0; position: fixed; color: rgba(0,0,0,0.87); }
+    #menu:checked { left: 80%; z-index: 999; }
+    #menu::before { content: '☰'; display: block; font-size: 30px; }
+    #sidebar { display: none; position: absolute; top: 0; left: 0; height: 100%; width: 90%; background-color: white; box-shadow: 1px 1px 10px 1px black, 0px 0px 0px 500px rgba(0, 0, 0, 0.7); }
+    #menu:checked + #sidebar { display: block; }
+    #content { margin-top: 48px; }
+}

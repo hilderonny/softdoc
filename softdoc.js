@@ -24,6 +24,8 @@ function handleLink() {
     loadMarkdown(this.getAttribute('href'), '#content');
     event.preventDefault();
     event.stopPropagation(); // Damit im Menü nicht auch die li-Tags im Hintergrund getriggert werden
+    document.getElementById('menu').checked = false; // Menü ausblenden
+    document.getElementById('content').scrollTo(0, 0); // Scroll to top
     return false;
 }
 
